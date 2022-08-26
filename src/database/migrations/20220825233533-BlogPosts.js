@@ -19,6 +19,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       userId: {
+        foreignKey: true,
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
