@@ -12,4 +12,5 @@ module.exports = (sequelize, DataTypes) => sequelize.define('Category', {
     },
   }, {
     taleName: 'Categories',
+    timestamps: false,
   });

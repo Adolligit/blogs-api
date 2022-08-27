@@ -12,7 +12,10 @@ module.exports = (sequelize, DataTypes) => {
           foreignKey: true,
         },
       }, 
-      { tableName: 'PostCategories' },
+      { 
+        tableName: 'PostCategories',
+        timestamps: false,
+      },
     );
 
   PostCategory.associate = (models) => {

@@ -1,5 +1,5 @@
 const express = require('express');
-const rescue = require('express-rescue');
+const addRescue = require('../util/addRescue');
 
 const login = require('../controllers/login');
 const { validates } = require('../middleware');
@@ -7,9 +7,12 @@ const { errorHandler } = require('../middleware');
 
 const route = express();
 
-route.use(rescue(validates.login.inputValues));
+const postMidArr = [
+  validates.login.inputValues,
+  login.entry,
+];
 
-route.post('/', login.entry);
+route.post('/', addRescue(postMidArr));
 
 route.use(errorHandler.controller);
 
