@@ -1,6 +1,6 @@
 const express = require('express');
 
-const authenticationJWT = require('../middleware/authenticationJWT');
+const authenticationJWT = require('../middleware/authentication/CommonUser');
 
 const route = express();
 
