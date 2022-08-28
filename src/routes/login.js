@@ -2,7 +2,7 @@ const express = require('express');
 const addRescue = require('../util/addRescue');
 
 const login = require('../controllers/login');
-const { validates, errorHandler } = require('../middleware');
+const { validates } = require('../middleware');
 
 const route = express();
 
