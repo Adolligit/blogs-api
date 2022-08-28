@@ -6,7 +6,7 @@ async function inputValues(req, _res, next) {
 
   const { email, password } = req.body;
   const { error } = schema.validate(email);
-  
+
   if (error || !email || !password) throw new Error('Some required fields are missing', options);
 
   next();

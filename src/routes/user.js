@@ -1,11 +1,20 @@
 const express = require('express');
+const addRescue = require('../util/addRescue');
 
-const authenticationJWT = require('../middleware/authentication/CommonUser');
+const user = require('../controllers/user');
+const { auth, validates } = require('../middleware');
 
 const route = express();
 
-route.post('/', (req, res) => res.status(201).json({ message: 'usuário criado' }));
+const postMiddlewares = [
+  validates.user.inputValues,
+  user.create,
+];
 
-route.use(authenticationJWT);
+route.post('/', addRescue(postMiddlewares));
+
+route.use(auth.CommonUser);
+route.get('/', user.all);
+route.get('/:id', user.byId);
 
 module.exports = route;

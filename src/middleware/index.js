@@ -1,12 +1,15 @@
-const { inputValues } = require('./validation/login/inputValues');
 const CommonUser = require('./authentication/CommonUser');
+
+const login = require('./validation/login/inputValues');
+const user = require('./validation/user/inputValues');
+
 const handlerFromController = require('./error/controller');
 
 module.exports = {
   auth: { CommonUser },
   validates: {
-    login: { inputValues },
-    user: {},
+    login,
+    user,
     categories: {},
     post: {},
   },
