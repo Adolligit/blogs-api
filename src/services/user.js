@@ -1,14 +1,19 @@
-const { User } = require('../database/models');
+const { User: userModel } = require('../database/models');
 const createToken = require('../util/createToken');
 
 async function create(payload) {
-  const existingUser = await User.findOne({ where: { email: payload.email } });
+  const existingUser = await userModel.findOne({ where: { email: payload.email } });
   
   if (existingUser) throw new Error('User already registered', { cause: { status: 409 } });
 
-  const { id, displayName, email } = await User.create(payload);
+  const { id, displayName, email } = await userModel.create(payload);
 
   return createToken({ id, displayName, email }, '1d');
 }
 
-module.exports = { create };
+const all = () => userModel.findAll();
+
+module.exports = {
+  create,
+  all,
+};
