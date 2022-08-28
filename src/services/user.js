@@ -11,7 +11,7 @@ async function create(payload) {
   return createToken({ id, displayName, email }, '1d');
 }
 
-const all = () => userModel.findAll();
+const all = () => userModel.findAll({ attributes: { exclude: ['password'] } });
 
 module.exports = {
   create,
