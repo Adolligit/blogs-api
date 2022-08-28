@@ -3,7 +3,7 @@ const CommonUser = require('./authentication/CommonUser');
 const login = require('./validation/login/inputValues');
 const user = require('./validation/user/inputValues');
 
-const forControllersErrors = require('./error/forControllersErrors');
+const controller = require('./error/forControllersErrors');
 
 module.exports = {
   auth: { CommonUser },
@@ -14,7 +14,7 @@ module.exports = {
     post: {},
   },
   errorHandler: { 
-    controller: forControllersErrors,
+    controller,
     service: '',
     model: '',
   },

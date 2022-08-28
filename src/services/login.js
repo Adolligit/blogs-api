@@ -2,9 +2,9 @@ const { User } = require('../database/models');
 const createToken = require('../util/createToken');
 
 async function entry(payload) {
-  const { email } = payload;
+  const { email, password } = payload;
 
-  const existingUser = await User.findOne({ where: { email } });
+  const existingUser = await User.findOne({ where: { email, password } });
 
   if (!existingUser) throw new Error('Invalid fields', { cause: { status: 400 } });
 
