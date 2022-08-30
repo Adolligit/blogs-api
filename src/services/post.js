@@ -5,7 +5,7 @@ async function all() {
       include: [
       { 
         model: User, 
-        as: 'users', 
+        as: 'user', 
         attributes: { exclude: ['password'] },
       },
       { 
