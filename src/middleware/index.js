@@ -2,6 +2,7 @@ const CommonUser = require('./authentication/CommonUser');
 
 const login = require('./validation/login/inputValues');
 const user = require('./validation/user/inputValues');
+const categories = require('./validation/categories/inputValues');
 
 const controller = require('./error/forControllersErrors');
 
@@ -10,7 +11,7 @@ module.exports = {
   validates: {
     login,
     user,
-    categories: {},
+    categories,
     post: {},
   },
   errorHandler: { 
