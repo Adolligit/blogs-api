@@ -1,3 +1,5 @@
+const { Op } = require('sequelize');
+
 const { BlogPost: postModel, User, Category } = require('../database/models');
 
 async function all() {
@@ -19,7 +21,29 @@ async function all() {
 
   return result;
 }
-const query = () => postModel.findAll();
+
+async function query(search) {
+  // Só isso para usar OR? EZE!
+  const result = await postModel.findOne({ 
+    where: {
+      [Op.or]: [
+        {
+          title: {
+            [Op.like]: `%${search}`,
+          },
+        },
+        {
+          content: {
+            [Op.like]: `%${search}`,
+          },
+        },
+      ],
+    },
+  });
+
+  return result;
+}
+
 const create = () => postModel.findAll();
 const byId = () => postModel.findAll();
 const update = () => postModel.findAll();
