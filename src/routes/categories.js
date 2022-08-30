@@ -1,6 +1,8 @@
 const express = require('express');
+const { auth } = require('../middleware');
 
 const route = express();
-app.use(auth.CommonUser);
+
+route.use(auth.CommonUser);
 
 module.exports = route;
