@@ -1,5 +1,5 @@
 const login = require('./login');
-const categories = require('./categories');
+const categories = require('./category');
 const post = require('./post');
 const user = require('./user');
 

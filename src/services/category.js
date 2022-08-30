@@ -1,7 +1,7 @@
-const { Category: categoriesModel } = require('../database/models');
+const { Category: categoryModel } = require('../database/models');
 
 async function getCategory(conditions) {
-  const result = await categoriesModel.findOne({ where: conditions });
+  const result = await categoryModel.findOne({ where: conditions });
 
   return result;
 }
@@ -13,9 +13,9 @@ async function create(payload) {
 
   if (existingCategory) throw new Error('Category already exists', { cause: { status: 409 } });
 
-  return categoriesModel.create(payload);
+  return categoryModel.create(payload);
 }
 
-const all = () => categoriesModel.findAll({ order: ['id'] });
+const all = () => categoryModel.findAll({ order: ['id'] });
 
 module.exports = { create, all };

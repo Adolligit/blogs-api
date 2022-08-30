@@ -1,17 +1,17 @@
 const express = require('express');
 const { auth, validates } = require('../middleware');
-const categoriesController = require('../controllers/categories');
+const categoryController = require('../controllers/category');
 const addRescue = require('../util/addRescue');
 
 const route = express();
 
 const postMidArr = [
   validates.categories.inputValues,
-  categoriesController.create,
+  categoryController.create,
 ];
 
 route.use(auth.CommonUser);
 route.post('/', addRescue(postMidArr));
-route.get('/', categoriesController.all);
+route.get('/', categoryController.all);
 
 module.exports = route;
