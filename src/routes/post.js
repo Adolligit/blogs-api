@@ -1,8 +1,10 @@
 const express = require('express');
 const postController = require('../controllers/post');
+const { auth } = require('../middleware');
 
 const route = express();
 
+route.use(auth.CommonUser);
 route.get('/', postController.all);
 route.get('/search?', postController.query);
 route.post('/', postController.create);
