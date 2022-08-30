@@ -16,4 +16,6 @@ async function create(payload) {
   return categoriesModel.create(payload);
 }
 
-module.exports = { create };
+const all = () => categoriesModel.findAll({ order: ['id'] });
+
+module.exports = { create, all };

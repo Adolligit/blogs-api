@@ -12,5 +12,6 @@ const postMidArr = [
 
 route.use(auth.CommonUser);
 route.post('/', addRescue(postMidArr));
+route.get('/', categoriesController.all);
 
 module.exports = route;
