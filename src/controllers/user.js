@@ -9,7 +9,13 @@ async function create(req, res) {
 }
 
 async function byId(req, res) {
-  console.log(req, res);
+  const { id } = req.params;
+
+  const result = await userService.byId(id);
+
+  console.log('Executaki:', result);
+
+  return res.status(200).json(result);
 }
 
 const all = async (_req, res) => res.status(200).json(await userService.all());

@@ -15,6 +15,6 @@ route.post('/', addRescue(postMiddlewares));
 
 route.use(auth.CommonUser);
 route.get('/', user.all);
-route.get('/:id', user.byId);
+route.get('/:id', addRescue(user.byId));
 
 module.exports = route;
