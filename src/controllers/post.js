@@ -1,7 +1,6 @@
-
 const postService = require('../services/post');
 
-const all = (_req, _res) => postService.all();
+const all = async (_req, res) => res.status(200).json(await postService.all());
 const query = (_req, _res) => postService.all();
 const create = (_req, _res) => postService.all();
 const byId = (_req, _res) => postService.all();
@@ -15,4 +14,4 @@ module.exports = {
   byId,
   update,
   remove,
-}
+};
