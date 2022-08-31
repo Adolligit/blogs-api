@@ -6,7 +6,9 @@ function authenticationJWT(req, res, next) {
 
   if (!authorization) return res.status(401).json({ message: 'Token not found' });
 
-  jwt.verify(authorization, process.env.JWT_SECRET);
+  const decode = jwt.verify(authorization, process.env.JWT_SECRET);
+
+  req.locals.authenticated = decode;
 
   next();
 }
