@@ -26,7 +26,7 @@ async function query(search) {
   const BE_LIKE_SEARCH = { [Op.like]: `%${search}` };
 
   // Só isso para usar OR? Nossa, saudades query hardcode!
-  const result = await postModel.findOne({ 
+  const result = await postModel.findAll({ 
     where: {
       [Op.or]: [
         { title: BE_LIKE_SEARCH },
