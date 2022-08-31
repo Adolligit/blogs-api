@@ -23,22 +23,20 @@ async function all() {
 }
 
 async function query(search) {
-  // Só isso para usar OR? EZE!
+  const BE_LIKE_SEARCH = { [Op.like]: `%${search}` };
+
+  // Só isso para usar OR? Nossa, saudades query hardcode!
   const result = await postModel.findOne({ 
     where: {
       [Op.or]: [
-        {
-          title: {
-            [Op.like]: `%${search}`,
-          },
-        },
-        {
-          content: {
-            [Op.like]: `%${search}`,
-          },
-        },
+        { title: BE_LIKE_SEARCH },
+        { content: BE_LIKE_SEARCH },
       ],
     },
+    include: [
+      { model: User, as: 'user', attributes: { exclude: ['password'] } },
+      { model: Category, as: 'categories', through: { attributes: [] } },
+    ],
   });
 
   return result;
