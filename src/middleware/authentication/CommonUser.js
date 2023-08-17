@@ -8,7 +8,7 @@ function authenticationJWT(req, res, next) {
 
   const decode = jwt.verify(authorization, process.env.JWT_SECRET);
 
-  req.locals.authenticated = decode;
+  res.locals.authenticated = decode;
 
   next();
 }
