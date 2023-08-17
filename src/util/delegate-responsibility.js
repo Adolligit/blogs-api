@@ -13,4 +13,8 @@ module.exports = {
         message: 'User not found',
         status: httpStatus.NOT_FOUND,
     },
+    USER_ALREADY_REGISTERED: {
+        message: 'User already registered',
+        status: httpStatus.CONFLICT,
+    },
 };
