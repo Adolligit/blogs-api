@@ -1,5 +1,6 @@
 const { User: userModel } = require('../database/models');
 const createToken = require('../util/create-token');
+const { USER_NOT_FOUND } = require('../util/delegate-responsibility');
 
 const EXC_PASSWORD = { attributes: { exclude: ['password'] } };
 
@@ -18,8 +19,12 @@ const all = () => userModel.findAll(EXC_PASSWORD);
 async function byId(id) {
   const userSearch = await userModel.findByPk(id, EXC_PASSWORD);
 
-  if (!userSearch) throw new Error('User does not exist', { cause: { status: 404 } });
+  if (!userSearch) {
+    const error = new Error();
+    error.problem = USER_NOT_FOUND;
 
+    throw error;
+  }
   return userSearch;
 }
 
