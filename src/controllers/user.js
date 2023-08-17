@@ -13,8 +13,6 @@ async function byId(req, res) {
 
   const result = await userService.byId(id);
 
-  console.log('Executaki:', result);
-
   return res.status(200).json(result);
 }
 
