@@ -1,10 +1,16 @@
 const express = require('express');
+const SwaggerUI = require('swagger-ui-express');
+const convertYaml = require('./util/convert-yaml-file');
 const { errorHandler } = require('./middleware');
 const routes = require('./routes');
 
 const app = express();
 
-app.use(express.json());
+app.use(
+    '/docs',
+    SwaggerUI.serve,
+    SwaggerUI.setup(convertYaml('./public/v1/swagger.yml')),
+);
 
 app.use('/login', routes.login);
 app.use('/user', routes.user);
