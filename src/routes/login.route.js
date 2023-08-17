@@ -1,13 +1,13 @@
 const express = require('express');
+const { inputValues } = require('../middleware');
+const schema = require('../util/input-validation');
 const addRescue = require('../util/add-rescue');
-
 const login = require('../controllers/login.controller');
-const { validates } = require('../middleware');
 
 const route = express();
 
 const postMidArr = [
-  validates.login.inputValues,
+  inputValues(schema.login),
   login.entry,
 ];
 

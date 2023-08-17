@@ -1,12 +1,13 @@
 const express = require('express');
-const { auth, validates } = require('../middleware');
+const { auth, inputValues } = require('../middleware');
+const schema = require('../util/input-validation');
 const categoryController = require('../controllers/category.controller');
 const addRescue = require('../util/add-rescue');
 
 const route = express();
 
 const postMidArr = [
-  validates.categories.inputValues,
+  inputValues(schema.category),
   categoryController.create,
 ];
 
