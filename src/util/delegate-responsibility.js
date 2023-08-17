@@ -9,7 +9,7 @@ module.exports = {
         message: 'Expired or invalid token',
         status: httpStatus.UNAUTHORIZED,
     },
-    USE_NOT_FOUND: {
+    USER_NOT_FOUND: {
         message: 'User not found',
         status: httpStatus.NOT_FOUND,
     },
