@@ -1,5 +1,5 @@
 const { Category: categoryModel } = require('../database/models');
-const { CATEGORY_ALREADY_EXISTS } = require('../util/delegate-responsibility');
+const { CATEGORY_ALREADY_EXISTS } = require('../util/ wrapping-status');
 
 async function getCategory(conditions) {
   const result = await categoryModel.findOne({ where: conditions });

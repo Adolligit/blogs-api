@@ -1,6 +1,6 @@
 const { User } = require('../database/models');
 const createToken = require('../util/create-token');
-const { USER_NOT_FOUND } = require('../util/delegate-responsibility');
+const { USER_NOT_FOUND } = require('../util/ wrapping-status');
 
 async function entry(payload) {
   const { email, password } = payload;

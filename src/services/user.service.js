@@ -3,7 +3,7 @@ const createToken = require('../util/create-token');
 const {
     USER_NOT_FOUND,
     USER_ALREADY_REGISTERED,
-} = require('../util/delegate-responsibility');
+} = require('../util/ wrapping-status');
 
 const EXC_PASSWORD = { attributes: { exclude: ['password'] } };
 
