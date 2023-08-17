@@ -1,5 +1,5 @@
 const httpStatus = require('http-status');
-const categoryService = require('../services/category');
+const categoryService = require('../services/category-service');
 
 async function create(req, res) {
   const { name: nameBody } = req.body;
