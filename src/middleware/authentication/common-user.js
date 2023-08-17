@@ -5,8 +5,6 @@ const jwt = require('jsonwebtoken');
 function authenticationJWT(req, res, next) {
   const { authorization } = req.headers;
 
-  console.log(authorization);
-
   if (!authorization) {
     return res.status(httpStatus.UNAUTHORIZED).json({ message: 'Token not found' });
   }
@@ -17,9 +15,11 @@ function authenticationJWT(req, res, next) {
       : authorization
   );
 
-  const decode = jwt.verify(token, process.env.JWT_SECRET);
-
-  res.locals.authenticated = decode;
+  try {
+    jwt.verify(token, process.env.JWT_SECRET);
+  } catch (error) {
+    return res.status(httpStatus.UNAUTHORIZED).json({ message: 'Expired or invalid token' });
+  }
 
   next();
 }

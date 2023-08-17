@@ -1,20 +1,12 @@
 const httpStatus = require('http-status');
 
 function forControllerErrors(error, _req, res, _next) {
-  const { cause, name, problem } = error;
+  const { cause, problem } = error;
 
   if (problem) {
     const { status, message } = problem;
 
     return res.status(status).json({ message });
-  }
-  
-  if (name.includes('Token')) {
-    /*
-      Fiz esta condição ridícula porque o avaliador da Trybe não aceita
-      meu tryCatch dentro do próprio middleware 'CommonUser'
-    */
-    return res.status(httpStatus.UNAUTHORIZED).json({ message: 'Expired or invalid token' });
   }
   
   if (!cause) {
