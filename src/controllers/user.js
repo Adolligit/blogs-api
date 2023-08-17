@@ -1,3 +1,4 @@
+const httpStatus = require('http-status');
 const userService = require('../services/user');
 
 async function create(req, res) {
@@ -5,7 +6,7 @@ async function create(req, res) {
 
   const token = await userService.create({ displayName, email, password, image });
 
-  res.status(201).json({ token });
+  res.status(httpStatus.CREATED).json({ token });
 }
 
 async function byId(req, res) {
@@ -13,10 +14,10 @@ async function byId(req, res) {
 
   const result = await userService.byId(id);
 
-  return res.status(200).json(result);
+  return res.status(httpStatus.OK).json(result);
 }
 
-const all = async (_req, res) => res.status(200).json(await userService.all());
+const all = async (_req, res) => res.status(httpStatus.OK).json(await userService.all());
 
 module.exports = {
   create,

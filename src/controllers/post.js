@@ -1,13 +1,14 @@
+const httpStatus = require('http-status');
 const postService = require('../services/post');
 
-const all = async (_req, res) => res.status(200).json(await postService.all());
+const all = async (_req, res) => res.status(httpStatus.OK).json(await postService.all());
 
 async function query(req, res) {
   const { q } = req.query;
 
   const result = await postService.query(q);
 
-  res.status(200).json(result || []);
+  res.status(httpStatus.OK).json(result || []);
 }
 
 const create = (_req, _res) => postService.all();
