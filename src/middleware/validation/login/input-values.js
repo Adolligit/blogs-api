@@ -1,7 +1,8 @@
+const httpStatus = require('http-status');
 const Joi = require('joi');
 
 async function inputValues(req, _res, next) {
-  const options = { cause: { status: 400 } };
+  const options = { cause: { status: httpStatus.BAD_REQUEST } };
   const schema = Joi.string().email();
 
   const { email, password } = req.body;

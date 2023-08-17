@@ -1,4 +1,5 @@
 require('dotenv').config();
+const httpStatus = require('http-status');
 const jwt = require('jsonwebtoken');
 
 function authenticationJWT(req, res, next) {
@@ -6,7 +7,9 @@ function authenticationJWT(req, res, next) {
 
   console.log(authorization);
 
-  if (!authorization) return res.status(401).json({ message: 'Token not found' });
+  if (!authorization) {
+    return res.status(httpStatus.UNAUTHORIZED).json({ message: 'Token not found' });
+  }
 
   const token = (
     authorization.includes('Bearer')

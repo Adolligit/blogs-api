@@ -1,6 +1,7 @@
+const httpStatus = require('http-status');
 const Joi = require('joi');
 
-const options = { cause: { status: 400 } };
+const options = { cause: { status: httpStatus.BAD_REQUEST } };
 
 const schema = Joi.object({
   displayName: Joi.string().min(8).required(),
