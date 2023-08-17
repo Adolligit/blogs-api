@@ -1,20 +1,20 @@
 const express = require('express');
 const addRescue = require('../util/add-rescue');
-
-const user = require('../controllers/user.controller');
-const { auth, validates } = require('../middleware');
+const userController = require('../controllers/user.controller');
+const { auth, inputValues } = require('../middleware');
+const schema = require('../util/input-validation');
 
 const route = express();
 
 const postMiddlewares = [
-  validates.user.inputValues,
-  user.create,
+  inputValues(schema.user),
+  userController.create,
 ];
 
 route.post('/', addRescue(postMiddlewares));
 
 route.use(auth.CommonUser);
-route.get('/', user.all);
-route.get('/:id', addRescue(user.byId));
+route.get('/', userController.all);
+route.get('/:id', addRescue(userController.byId));
 
 module.exports = route;

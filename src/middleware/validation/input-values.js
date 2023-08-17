@@ -10,4 +10,4 @@ const inputValues = (schema) => (req, _res, next) => {
     next();
 };
 
-module.exports = { inputValues };
+module.exports = inputValues;
