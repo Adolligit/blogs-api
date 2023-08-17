@@ -1,6 +1,6 @@
 const express = require('express');
 const { auth, validates } = require('../middleware');
-const categoryController = require('../controllers/category-controller');
+const categoryController = require('../controllers/category.controller');
 const addRescue = require('../util/add-rescue');
 
 const route = express();

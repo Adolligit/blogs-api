@@ -1,5 +1,5 @@
 const httpStatus = require('http-status');
-const postService = require('../services/post-service');
+const postService = require('../services/post.service');
 
 const all = async (_req, res) => res.status(httpStatus.OK).json(await postService.all());
 

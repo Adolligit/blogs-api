@@ -1,5 +1,5 @@
 const httpStatus = require('http-status');
-const userService = require('../services/user-service');
+const userService = require('../services/user.service');
 
 async function create(req, res) {
   const { displayName, email, password, image } = req.body;
