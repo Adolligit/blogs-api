@@ -1,11 +1,14 @@
 const httpStatus = require('http-status');
 
 const inputValues = (schema) => (req, _res, next) => {
-    const options = { cause: { status: httpStatus.BAD_REQUEST } };
+    const { error: { message } } = schema.validate(req.body);
 
-    const { error } = schema.validate(req.body);
+    if (message) {
+        const error = new Error();
+        error.problem = { message, status: httpStatus.BAD_REQUEST };
 
-    if (error) throw new Error(error.message, options);
+        throw error;
+    }
 
     next();
 };
