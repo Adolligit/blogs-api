@@ -1,5 +1,5 @@
 const express = require('express');
-const addRescue = require('../util/add-rescue');
+const addRescue = require('../helpers/add-rescue');
 const userController = require('../controllers/user.controller');
 const { auth, inputValues } = require('../middleware');
 const schema = require('../util/input-validation');

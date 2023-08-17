@@ -1,6 +1,6 @@
 const express = require('express');
 const SwaggerUI = require('swagger-ui-express');
-const convertYaml = require('./util/convert-yaml-file');
+const convertYaml = require('./helpers/convert-yaml-file');
 const { errorHandler } = require('./middleware');
 const routes = require('./routes');
 
