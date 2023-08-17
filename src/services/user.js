@@ -1,5 +1,5 @@
 const { User: userModel } = require('../database/models');
-const createToken = require('../util/createToken');
+const createToken = require('../util/create-token');
 
 const EXC_PASSWORD = { attributes: { exclude: ['password'] } };
 

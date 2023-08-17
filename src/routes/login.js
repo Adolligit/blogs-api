@@ -1,5 +1,5 @@
 const express = require('express');
-const addRescue = require('../util/addRescue');
+const addRescue = require('../util/add-rescue');
 
 const login = require('../controllers/login');
 const { validates } = require('../middleware');

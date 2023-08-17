@@ -1,10 +1,10 @@
-const CommonUser = require('./authentication/CommonUser');
+const CommonUser = require('./authentication/common-user');
 
-const login = require('./validation/login/inputValues');
-const user = require('./validation/user/inputValues');
-const categories = require('./validation/categories/inputValues');
+const login = require('./validation/login/input-values');
+const user = require('./validation/user/input-values');
+const categories = require('./validation/categories/input-values');
 
-const controller = require('./error/forControllersErrors');
+const controller = require('./error/for-controllers-errors');
 
 module.exports = {
   auth: { CommonUser },

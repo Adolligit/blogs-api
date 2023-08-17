@@ -1,5 +1,5 @@
 const { User } = require('../database/models');
-const createToken = require('../util/createToken');
+const createToken = require('../util/create-token');
 
 async function entry(payload) {
   const { email, password } = payload;
