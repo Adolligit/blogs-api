@@ -1,0 +1,81 @@
+openapi: 3.0.1
+info:
+  title: Blogs API
+  description: Esta API simula o gerenciamento e criação de postagens de um blog.
+  version: 1.0.0
+  contact:
+    name: Adelson
+    url: https://www.linkedin.com/in/adelson-lima/
+servers:
+  - url: http://127.0.0.1:3000/v1
+paths:
+  /login:
+    post:
+      tags:
+        - Login
+      summary: Irá autenticar o usuário.
+      description: Através desta requisição, é enviado o **email** e **password** para o back-end, que irá validar a existência destes dados no banco de dados e caso existam, irá retornar um Bearer Token gerado pelo JWT.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+            examples:
+              1:
+                value:
+                  email: lewishamilton@gmail.com
+                  password": 123456
+              2:
+                value:
+                  email: michaelschumacher@gmail.com
+                  password": 123456
+      responses:
+        200:
+          description: Irá retornar um token para futuras validações, o que te garante acesso a todas as outras rotas da API.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token: 
+                    type: string
+              example:
+                token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+        400:
+          description: Irá retornar uma mensagem de erro sempre que uma requisição não tiver os campos necessários.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              examples:
+                "Sem email":
+                  value:
+                    message: "\"password\" is required"
+                "Sem a senha":
+                  value:
+                    message: "\"email\" is required"
+                "Campo extra":
+                  value:
+                    message: "\"name\" is not allowed"
+        404:
+          description: Irá retornar uma mensagem informando que não há um registro com os dados enviados na requisição.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message: 
+                    type: string
+              example:
+                message: "User not found"
+
+                
