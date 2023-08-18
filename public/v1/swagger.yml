@@ -158,4 +158,10 @@ paths:
                     type: string
                 example:
                   message: "User already registered"
-          
+    get:
+      tags:
+        - User
+      summary: Irá retornar todos os registros de todos os usuários cadastrados.
+      description: Todos os dados de todos os usuários registrados no banco de dados será retornado dentro de uma vetor.
+      
+            
