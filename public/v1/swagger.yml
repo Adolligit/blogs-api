@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Blogs API
-  description: Esta API simula o gerenciamento e criação de postagens de um blog.
+  description: Nesta documentação feita com Swagger (OpenAPI), você tem amplo acesso a todas as rotas já disponíveis, assim como o resultado de um requisição, tanto positivo quanto negativo. Aleḿ do mais, você pode também testar a API diretamente por aqui, sem precisar de outro Client API. Para testar basta clicar na rota deseja e então clicar em **Try it out**.
   version: 1.0.0
   contact:
     name: Adelson
@@ -77,5 +77,85 @@ paths:
                     type: string
               example:
                 message: "User not found"
-
-                
+  /user:
+    post:
+      tags:
+        - User
+      summary: Irá registra os dados referente a um novo usuário.
+      description: Quando receber os dados através de uma requisição, irá valida-los e caso o **email** já não esteja registrado, todos os dados serão registrado no banco de dados. Por fim, retornará um token criado para o novo usuário.
+      requestBody:
+        required: true
+        description: dasdasda
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - displayName
+                - email
+                - password
+              properties:
+                displayName: 
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string 
+                image:
+                  type: string
+            examples:
+              1:
+                value:
+                  displayName: Lewis Hamilton
+                  email: lewishamilton@gmail.com
+                  password: 123456
+                  image: https://upload.wikimedia.org/wikipedia/commons/1/18/Lewis_Hamilton_2016_Malaysia_2.jpg
+              2:
+                value:
+                  displayName: Michael Schumacher
+                  email: michaelcchumacher@gmail.com
+                  password: 123456
+                  image: https://sportbuzz.uol.com.br/media/_versions/gettyimages-52491565_widelg.jpg
+      responses:
+        201:
+          description: Irá retornar um token exclusivo para o novo usuário registrado.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                example:
+                  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+        400:
+          description: Uma mensagem de erro é retornada ao não informar um dos campos necessário, algum campo extra ou valore incorreto para determinado tipo.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              examples:
+                "Campo extra":
+                  value:
+                    message: "\"easy\" is not allowed"
+                "Sem o campo email":
+                  value:
+                    message: "\"email\" is required"
+                "Sem o campo displayName":
+                  value:
+                    message: "\"displayName\" is required"
+        409:
+          description: Irá retornar uma mensagem de erro ao tentar cadastrar um usuário com o mesmo **email**.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                example:
+                  message: "User already registered"
+          
