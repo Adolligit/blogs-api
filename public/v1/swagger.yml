@@ -202,7 +202,7 @@ paths:
       summary: Irá retornar todos os dados do usuário baseado na pesquisa do seu ID.
       description: Ao receber o ID referente a um registro, a aplicação vai verificar se existe um usuário. Em caso positivo, irá retorna todos os dados. Caso não exista nenhum registro referente ao ID da busca, uma mensagem de erro será retornada.
       parameters:
-          - name: ID
+          - name: id
             in: path
             required: true
             schema:
@@ -251,6 +251,75 @@ paths:
                     type: string
               example:
                 message: "User not found"
-          
+  /categories:
+    post:
+      tags:
+        - Category
+      summary: Irá registrar os dados referente a uma nova categoria.
+      description: Ao receber uma requisição, irá verificar se há campos extras ou a ausência do campo **name**. Caso não haja problema com os dados recebidos, irá verificar então se o nome da categoria já existe. Caso já exista a categoria, retornará um erro, do contrário, irá registrar a nova categoria.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+              properties:
+                name:
+                  type: string
+            examples:
+              1:
+                value:
+                  name: Inovação
+              2:
+                value:
+                  name: Escola
+              3:
+                value:
+                  name: Trabalho
+      responses:
+        201:
+          description: Irá criar o registro referente a categoria, com o nome recebido na requisição.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: number
+                  name:
+                    type: string
+              example:
+                id: 1
+                name: Inovação
+        400:
+          description: Irá retornar uma mensagem de erro dizendo que há problemas com os campos recebidos na requisição.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  mensagem:
+                    type: string
+              examples:
+                "Sem enviar o 'name'":
+                  value:
+                    message: "\"name\" is required"
+                "Enviando campo extra":
+                  value:
+                    message: "\"campo_desnecessário\" is not allowed"
+        409:
+          description: Irá retornar uma mensagem de erro informando que já existe esta categoria registrada no banco de dados.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  mensagem:
+                    type: string
+              example:
+                message: Category already exists
 
+    # get:
                 
