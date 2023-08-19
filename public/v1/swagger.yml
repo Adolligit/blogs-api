@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Blogs API
-  description: Nesta documentação feita com Swagger (OpenAPI), você tem amplo acesso a todas as rotas já disponíveis, assim como o resultado de um requisição, tanto positivo quanto negativo. Aleḿ do mais, você pode também testar a API diretamente por aqui, sem precisar de outro Client API. Para testar basta clicar na rota deseja e então clicar em **Try it out**.
+  description: Nesta documentação feita com Swagger (OpenAPI), você tem amplo acesso a todas as rotas já disponíveis, assim como o resultado de um requisição, tanto positivo quanto negativo. Além do mais, você pode também testar a API diretamente por aqui, sem precisar de outro Client API. Para testar basta clicar na rota deseja e então clicar em **Try it out**.
   version: 1.0.0
   contact:
     name: Adelson
@@ -85,7 +85,6 @@ paths:
       description: Quando receber os dados através de uma requisição, irá valida-los e caso o **email** já não esteja registrado, todos os dados serão registrado no banco de dados. Por fim, retornará um token criado para o novo usuário.
       requestBody:
         required: true
-        description: dasdasda
         content:
           application/json:
             schema:
@@ -184,7 +183,7 @@ paths:
               examples:
                 "Quando há registros":
                   value:
-                  - id: 1,
+                  - id: 1
                     displayName: Lewis Hamilton
                     email: lewishamilton@gmail.com
                     image: https://upload.wikimedia.org/wikipedia/commons/1/18/Lewis_Hamilton_2016_Malaysia_2.jpg
@@ -321,5 +320,32 @@ paths:
               example:
                 message: Category already exists
 
-    # get:
+    get:
+      tags:
+        - Category
+      summary: Irá retornar todas as categorias.
+      description: Irá retornar todas as categorias já registradas no banco de dados.
+      responses:
+        200:
+          description: Todos os dados de todas as categorias serão retornados.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name: 
+                      type: string
+              examples:
+                "Quando há registros":
+                  value:
+                  - id: 1
+                    name: Inovação
+                  - id: 2
+                    name: Escola
+                "Não há registros":
+                  value:
+                    []
+      
                 
