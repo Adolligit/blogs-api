@@ -428,7 +428,109 @@ paths:
                   categories: 
                       - id: 2
                         name: Escola
+  /post/search?q=:
+    get:
+      tags:
+        - Post
+      summary: Irá retornar todos os dados referente a pesquisa.
+      description: Ao receber uma requisição com a query `q`, será feita uma verificação no campo **title** e **content** de todos os dados referentes as postagens criadas.
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema:
+            type: string
+          examples:
+            "Buscando pelo termo 'Ano'":
+              value: Ano
+            "Buscando pelo termo 'Melhor'":
+              value: Melhor
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                      id:
+                        type: number
+                      title:
+                        type: string 
+                      content:
+                        type: string 
+                      userId:
+                        type: number
+                      published:
+                        type: string 
+                      updated:
+                        type: string
+                      user:
+                        type: object
+                        properties:
+                          id:
+                            type: number
+                          displayName:
+                            type: string
+                          email:
+                            type: string
+                          password:
+                            type: string 
+                          image:
+                            type: string
+                      categories:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: number
+                            name:
+                              type: string
+              examples:
+                "Pesquisando por 'Ano'":
+                  value:
+                  - id: 1
+                    title: Post do Ano
+                    content: Melhor post do ano
+                    userId: 1
+                    published: 2011-08-01T19:58:00.000Z
+                    updated: 2011-08-01T19:58:51.000Z
+                    user: 
+                        id: 1
+                        displayName: Lewis Hamilton
+                        email: lewishamilton@gmail.com
+                        image: https://upload.wikimedia.org/wikipedia/commons/1/18/Lewis_Hamilton_2016_Malaysia_2.jpg
+                    categories: 
+                        - id: 1
+                          name: Inovação
+                "Pesquisando por 'ré'":
+                  value:
+                    - id: 2
+                      title: Vamos que vamos
+                      content: Foguete não tem ré
+                      userId: 1
+                      published: 2011-08-01T19:58:00.000Z
+                      updated: 2011-08-01T19:58:51.000Z
+                      user: 
+                          id: 1
+                          displayName: Lewis Hamilton
+                          email: lewishamilton@gmail.com
+                          image: https://upload.wikimedia.org/wikipedia/commons/1/18/Lewis_Hamilton_2016_Malaysia_2.jpg
+                      
+                      categories: 
+                          - id: 2
+                            name: Escola
 
+components:
+  securitySchemes:
+    toke_jwt_bearer:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
 
-  # /post/search?q=
+security:
+  - toke_jwt_bearer: []
+  
                 
