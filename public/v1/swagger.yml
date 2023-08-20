@@ -4,7 +4,13 @@ info:
   description: |-
     Nesta documentação feita com Swagger (OpenAPI), você tem amplo acesso a todas as rotas já disponíveis, assim como o resultado de um requisição, tanto positivo quanto negativo.
     
-    Além do mais, você pode também testar a API diretamente por aqui, sem precisar de outro Client API.Para testar basta clicar na rota deseja e então clicar em `Try it out`.
+    Além do mais, você pode também testar a API diretamente por aqui, sem precisar de outro Client API. Para testar basta clicar na rota deseja e então clicar em `Try it out`.
+
+    Lembre-se que é IMPRESCINDÍVEL o uso do **token** nas rotas com o ícone de cadeado (🔒), gerado pela rota **/login** e **/user (POST)**.
+    
+    Para utilizar o token, você deverá clicando no botão verde `Authorize 🔓`, inseri-lo na caixa de texto e então clicar em **Authorize**. Pronto! Desta forma, poderá usufruir de todas as rotas.
+
+    
   version: 1.0.0
   contact:
     name: Adelson
