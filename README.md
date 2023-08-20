@@ -168,7 +168,7 @@ Antes de prosseguir, por favor confirme que:
 </details>
 <details>
   <summary>Erro ao tentar popular o banco de dados ou ele não foi reconhecido</summary>
-  <img align="center" alt="npm-seed" src="https://raw.githubusercontent.com/Adolligit//main/img/4sse.png">
+  <img align="center" alt="npm-seed" src="https://raw.githubusercontent.com/Adolligit/blogs-api/main/img/4sse.png">
 
   Este erro significa que não há criado o banco de dados 'blogs-api-test'. 
 
