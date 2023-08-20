@@ -18,6 +18,7 @@ paths:
         - Login
       summary: Irá autenticar o usuário.
       description: Através desta requisição, é enviado o **email** e **password** para o back-end, que irá validar a existência destes dados no banco de dados e caso existam, irá retornar um Bearer Token gerado pelo JWT.
+      security: []
       requestBody:
         required: true
         content:
@@ -33,11 +34,11 @@ paths:
               1:
                 value:
                   email: lewishamilton@gmail.com
-                  password": 123456
+                  password: "123456"
               2:
                 value:
                   email: michaelschumacher@gmail.com
-                  password": 123456
+                  password: "123456"
       responses:
         200:
           description: Irá retornar um token para futuras validações, o que te garante acesso a todas as outras rotas da API.
@@ -86,6 +87,7 @@ paths:
         - User
       summary: Irá registra os dados referente a um novo usuário.
       description: Quando receber os dados através de uma requisição, irá valida-los e caso o **email** já não esteja registrado, todos os dados serão registrado no banco de dados. Por fim, retornará um token criado para o novo usuário.
+      security: []
       requestBody:
         required: true
         content:
@@ -110,13 +112,13 @@ paths:
                 value:
                   displayName: Lewis Hamilton
                   email: lewishamilton@gmail.com
-                  password: 123456
+                  password: "123456"
                   image: https://upload.wikimedia.org/wikipedia/commons/1/18/Lewis_Hamilton_2016_Malaysia_2.jpg
               2:
                 value:
                   displayName: Michael Schumacher
                   email: michaelcchumacher@gmail.com
-                  password: 123456
+                  password: "123456"
                   image: https://sportbuzz.uol.com.br/media/_versions/gettyimages-52491565_widelg.jpg
       responses:
         201:
@@ -398,36 +400,40 @@ paths:
                             type: number
                           name:
                             type: string
-              example:
-                - id: 1
-                  title: Post do Ano
-                  content: Melhor post do ano
-                  userId: 1
-                  published: 2011-08-01T19:58:00.000Z
-                  updated: 2011-08-01T19:58:51.000Z
-                  user: 
-                      id: 1
-                      displayName: Lewis Hamilton
-                      email: lewishamilton@gmail.com
-                      image: https://upload.wikimedia.org/wikipedia/commons/1/18/Lewis_Hamilton_2016_Malaysia_2.jpg
-                  categories: 
-                      - id: 1
-                        name: Inovação
-                - id: 2
-                  title: Vamos que vamos
-                  content: Foguete não tem ré
-                  userId: 1
-                  published: 2011-08-01T19:58:00.000Z
-                  updated: 2011-08-01T19:58:51.000Z
-                  user: 
-                      id: 1
-                      displayName: Lewis Hamilton
-                      email: lewishamilton@gmail.com
-                      image: https://upload.wikimedia.org/wikipedia/commons/1/18/Lewis_Hamilton_2016_Malaysia_2.jpg
-                  
-                  categories: 
-                      - id: 2
-                        name: Escola
+              examples:
+                "Quando há registros":
+                  value:
+                    - id: 1
+                      title: Post do Ano
+                      content: Melhor post do ano
+                      userId: 1
+                      published: 2011-08-01T19:58:00.000Z
+                      updated: 2011-08-01T19:58:51.000Z
+                      user: 
+                          id: 1
+                          displayName: Lewis Hamilton
+                          email: lewishamilton@gmail.com
+                          image: https://upload.wikimedia.org/wikipedia/commons/1/18/Lewis_Hamilton_2016_Malaysia_2.jpg
+                      categories: 
+                          - id: 1
+                            name: Inovação
+                    - id: 2
+                      title: Vamos que vamos
+                      content: Foguete não tem ré
+                      userId: 1
+                      published: 2011-08-01T19:58:00.000Z
+                      updated: 2011-08-01T19:58:51.000Z
+                      user: 
+                          id: 1
+                          displayName: Lewis Hamilton
+                          email: lewishamilton@gmail.com
+                          image: https://upload.wikimedia.org/wikipedia/commons/1/18/Lewis_Hamilton_2016_Malaysia_2.jpg
+                      
+                      categories: 
+                          - id: 2
+                            name: Escola
+                "Quando não nenhum registros":
+                  value: []
   /post/search?q=:
     get:
       tags:
@@ -443,10 +449,11 @@ paths:
           examples:
             "Buscando pelo termo 'Ano'":
               value: Ano
-            "Buscando pelo termo 'Melhor'":
-              value: Melhor
+            "Buscando pelo termo 'ré'":
+              value: ré
       responses:
         200:
+          description: Vai retornar todos os dados.
           content:
             application/json:
               schema:
@@ -522,6 +529,8 @@ paths:
                       categories: 
                           - id: 2
                             name: Escola
+                "Pesquisando por 'Adelson'":
+                  value: []
 
 components:
   securitySchemes:
@@ -531,6 +540,7 @@ components:
       bearerFormat: JWT
 
 security:
-  - toke_jwt_bearer: []
+  - toke_jwt_bearer:
+    - read
   
                 
