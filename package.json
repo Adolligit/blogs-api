@@ -28,6 +28,7 @@
     "start": "node .",
     "drop": "npx sequelize-cli db:drop",
     "seed": "npx sequelize-cli db:seed:all",
+    "reset": "npm run drop && npm run prestart && npm run seed",
     "debug": "nodemon .",
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json ."
   },

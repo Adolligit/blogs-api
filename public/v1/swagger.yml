@@ -9,8 +9,6 @@ info:
     Lembre-se que é IMPRESCINDÍVEL o uso do **token** nas rotas com o ícone de cadeado (🔒), gerado pela rota **/login** e **/user (POST)**.
     
     Para utilizar o token, você deverá clicando no botão verde `Authorize 🔓`, inseri-lo na caixa de texto e então clicar em **Authorize**. Pronto! Desta forma, poderá usufruir de todas as rotas.
-
-    
   version: 1.0.0
   contact:
     name: Adelson
