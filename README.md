@@ -176,23 +176,20 @@ Antes de prosseguir, por favor confirme que:
   - Executar o comando `npm run prestart` (acho que você esqueceu disso lá nos comando acima).
 </details>
 
-<!-- ## Linguagens e ferramentas:
+## Linguagens e ferramentas:
 <div>
-    <a href="https://swagger.io/tools/swagger-ui/"><img align="center" alt="NodeJs" height="45" width="45" src="https://camo.githubusercontent.com/96e43701d83561899724a89d71187445b7b8f4fe84518a3ea5bec8f85bd207bf/68747470733a2f2f63646e2e737667706f726e2e636f6d2f6c6f676f732f737761676765722e737667"></a>
-    <a href="https://nodejs.org/en/"><img align="center" alt="NodeJs" height="45" width="45" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"></a>
+    <a href="https://swagger.io/tools/swagger-ui/"><img align="center" alt="OpenAPI" height="39" width="39" src="https://camo.githubusercontent.com/96e43701d83561899724a89d71187445b7b8f4fe84518a3ea5bec8f85bd207bf/68747470733a2f2f63646e2e737667706f726e2e636f6d2f6c6f676f732f737761676765722e737667"></a>
+    <a href="https://nodejs.org/en/about">
+    <img align="center" alt="NodeJs" height="45" width="45" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"></a>
     <a href="https://expressjs.com/pt-br/"><img align="center" alt="Express" height="45" width="45" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"></a>
-    <a href="https://mochajs.org/"><img align="center" alt="Mocha" height="45" width="45" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mocha/mocha-plain.svg"></a>
-    <a href="https://www.chaijs.com/"><img align="center" alt="Chai" height="45" width="45" src="https://cdn.icon-icons.com/icons2/2699/PNG/512/chaijs_logo_icon_168435.png"></a>
-    <a href="https://sinonjs.org/"><img align="center" alt="Sinon" height="45" width="45" src="https://avatars.githubusercontent.com/u/6570253?s=280&v=4"></a>
-    <a href="https://dev.mysql.com/doc/"><img align="center" alt="NodeJs" height="45" width="66" src="https://upload.wikimedia.org/wikipedia/labs/8/8e/Mysql_logo.png"></a>
-    <a href="https://docs.docker.com/"><img align="center" alt="NodeJs" height="45" width="45" src="https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png"></a>
+    <a href="https://sequelize.org/"><img align="center" alt="Sequelize" height="45" width="45" src="https://sequelize.org/img/logo.svg"></a>
+    <a href="https://jwt.io/"><img align="center" alt="JWT" height="45" width="45" src="https://cdn.worldvectorlogo.com/logos/jwt-3.svg"></a>
+    <a href="https://dev.mysql.com/doc/"><img align="center" alt="NodeJs" height="45" width="45" src="https://cdn.worldvectorlogo.com/logos/mysql-6.svg"></a>
+    <a href="https://docs.docker.com/"><img align="center" alt="NodeJs" height="45" width="45" src="https://cdn.worldvectorlogo.com/logos/docker-4.svg"></a>
 </div>
 
 ## Agradecimento
-<p align="justify">
-Com este projeto tive a oportunidade de trabalhar com camadas na construção da API Rest e utilizar a técnica de <b>TDD</b>, cobrindo parte do desenvolvimento com testes unitários.
-</p>
 
 <p align="justify">
-E nada disso seria possível se não houvesse a idealização do projeto, portanto, agradeço a <a href="https://github.com/tryber">@tryber</a> pelo cuidado em trazer um projeto que nos desafia (nos alunos), a colocar em prática todos os nossos conhecimento em programação. 
-</p> -->
+E nada disso seria possível se não houvesse a idealização do projeto, portanto, agradeço a <a href="https://github.com/tryber">@tryber</a> pelo cuidado em trazer um projeto que nos desafia (nos alunos), a colocar em prática todos os nossos conhecimento em programação. Obrigadão mesmo!
+</p>
