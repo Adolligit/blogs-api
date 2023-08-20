@@ -35,14 +35,14 @@ Escolha uma das instalações a seguir:
     <li>Docker Compose: v2.19</li>
 </ul>
 
-  2. Crie e inicie os contêiners:
-  ```bash
-  docker compose up -d
-  ```
-  3. Entre no contêiner da aplicação:
-  ```bash
-  docker exec -it blogs_api bash
-  ```
+1. Crie e inicie os contêiners:
+```bash
+docker compose up -d
+```
+2. Entre no contêiner da aplicação:
+```bash
+docker exec -it blogs_api bash
+```
   ---
 </details>
 
@@ -132,10 +132,10 @@ Uma das opções descritas no erro poderá resolver o problema que você esta en
 Antes de prosseguir, por favor confirme que:
 - Docker 🐳
   - Você tem instalado em sua máquina o Docker e o Docker Compose nas versões mínimas exigidas.
-  - Verificou que a Docker Engine esta funcionando corretamente na minha máquina.
+  - Verificou que a Docker Engine esta funcionando corretamente na sua máquina.
 - Localmente 💻
   - Você tem instalado em minha máquina o MySQL, Node.js e NPM nas versões mínimas exigidas.
-  - Verificou que o MySQL esta funcionando corretamente na minha máquina.
+  - Verificou que o MySQL esta funcionando corretamente na sua máquina.
 
 
 ### Possíveis erros de instalação e execução:
@@ -170,7 +170,7 @@ Antes de prosseguir, por favor confirme que:
   <summary>Erro ao tentar popular o banco de dados ou ele não foi reconhecido</summary>
   <img align="center" alt="npm-seed" src="https://raw.githubusercontent.com/Adolligit/blogs-api/main/img/4sse.png">
 
-  Este erro significa que não há criado o banco de dados 'blogs-api-test'. 
+  Este erro significa que não há o banco de dados 'blogs-api-test' criado. 
 
   Para resolver isso você deve:
   - Executar o comando `npm run prestart` (acho que você esqueceu disso lá nos comando acima).
