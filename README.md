@@ -187,9 +187,3 @@ Antes de prosseguir, por favor confirme que:
     <a href="https://dev.mysql.com/doc/"><img align="center" alt="NodeJs" height="45" width="45" src="https://cdn.worldvectorlogo.com/logos/mysql-6.svg"></a>
     <a href="https://docs.docker.com/"><img align="center" alt="NodeJs" height="45" width="45" src="https://cdn.worldvectorlogo.com/logos/docker-4.svg"></a>
 </div>
-
-## Agradecimento
-
-<p align="justify">
-E nada disso seria possível se não houvesse a idealização do projeto, portanto, agradeço a <a href="https://github.com/tryber">@tryber</a> pelo cuidado em trazer um projeto que nos desafia (nos alunos), a colocar em prática todos os nossos conhecimento em programação. Obrigadão mesmo!
-</p>
